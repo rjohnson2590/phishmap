@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  .search-form
+    form
+        .search-text Enter Year
+        .search-input
+            input(type='text', name='year')
+        .search-button
+            input(class ="input-button", type='button', name='submit', value= "Search!")
