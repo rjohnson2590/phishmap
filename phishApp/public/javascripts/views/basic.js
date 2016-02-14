@@ -6,12 +6,12 @@ var phishYearResultView = Backbone.View.extend({
     render : function(){
         console.log('render');
         var yearData= this.model.get('data');
-        this.el.append('<div class = "search-result">' + yearData + '</div>');
+        this.$el.append('<div class = "search-result">' + yearData + '</div>');
 
     },
 
     initialize: function () {
-        this.model.on('change', this.render, this);
+        this.listenTo(this.model, 'change', this.render);
         console.log('init',this);
     },
 
@@ -28,3 +28,5 @@ var phishYearResultView = Backbone.View.extend({
 })
 
 var phishYearResult = new phishYearResultView({model: phishYear});
+
+console.log('hereismodeal', phishYearResult);

@@ -18,10 +18,8 @@ var phishYearModel = Backbone.Model.extend({
             })
             .done(function( phishData ) {
                     var phishDataParsed = JSON.parse(phishData);
-                    console.log('whatttt', self);
-                    console.log( "Sample of data:", phishDataParsed);
-                    self.attributes.data = phishDataParsed.data[0].location;
-                    console.log(self.attributes.data);
+                    self.set('data',phishDataParsed.data[0].location );
+                    
             });
 
     }
