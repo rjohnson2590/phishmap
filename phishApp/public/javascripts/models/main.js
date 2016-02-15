@@ -7,11 +7,11 @@ var phishYearModel = Backbone.Model.extend({
 
     },
 
-    search : function() {
+    search : function(year) {
         var self = this;
-        console.log('here');
+
         $.ajax({
-                url: "http://phish.in/api/v1/years/2012",
+                url: "http://phish.in/api/v1/years/"+ year +"",
                 beforeSend: function( xhr ) {
                     xhr.overrideMimeType( "text/plain; charset=x-user-defined" );
                 }
@@ -19,7 +19,7 @@ var phishYearModel = Backbone.Model.extend({
             .done(function( phishData ) {
                     var phishDataParsed = JSON.parse(phishData);
                     self.set('data',phishDataParsed.data[0].location );
-                    
+
             });
 
     }
