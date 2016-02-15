@@ -35,11 +35,10 @@ var phishYearModel = Backbone.Model.extend({
                 }
             })
             .done(function(phishCor){
-                var phishCorParsed = JSON.parse(phishCor);
-                console.log('phishCor',phishCorParsed);
-                var lat = phishCorParsed.results[0].geometry.location.lat;
-                var lng = phishCorParsed.results[0].geometry.location.lng;
-                var map = new google.maps.Map(document.getElementById('map'), {
+                var phishCorParsed = JSON.parse(phishCor),
+                     lat = phishCorParsed.results[0].geometry.location.lat,
+                     lng = phishCorParsed.results[0].geometry.location.lng;
+                     map = new google.maps.Map(document.getElementById('map'), {
                     zoom: 4,
                     center: {lat: lat, lng: lng}
                 });
